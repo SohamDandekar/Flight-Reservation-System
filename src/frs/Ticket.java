@@ -13,7 +13,7 @@ public class Ticket {
     private String status;
     private Flight flightDetails;
 
-    public Ticket(int pnrNumber, String departureLocation, String destinationLocation, String dateAndTimeOfDeparture, String dateAndTimeOfArrival, int seatNumber, Passenger passengerDetails, float price, String status, Flight fligthDetails) {
+    public Ticket(int pnrNumber, String departureLocation, String destinationLocation, String dateAndTimeOfDeparture, String dateAndTimeOfArrival, int seatNumber, Passenger passengerDetails, float price, String status, Flight flightDetails) {
         this.pnrNumber = pnrNumber;
         this.departureLocation = departureLocation;
         this.destinationLocation = destinationLocation;
@@ -23,7 +23,7 @@ public class Ticket {
         this.passengerDetails = passengerDetails;
         this.price = price;
         this.status = status;
-        this.flightDetails = fligthDetails;
+        this.flightDetails = flightDetails;
     }
 
     public Ticket() {

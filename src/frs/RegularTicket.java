@@ -7,7 +7,11 @@ public class RegularTicket {
         this.specialServices = specialServices;
     }
 
-    public String[] getSpecialServices() {
+    public String getSpecialServices() {
+        String specialServices = "Selected Services: ";
+        for(String ele: this.specialServices){
+            specialServices = specialServices + ele + " ";
+        }
         return specialServices;
     }
 

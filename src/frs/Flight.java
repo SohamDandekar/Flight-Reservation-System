@@ -1,45 +1,45 @@
 package frs;
 
 public class Flight {
-//TODO: Update capacity related stuff since its static now.
+
     private int flightNumber;
     private String airline;
-    private static int capacity;
+    private final int capacity;
     private int bookedSeatsCount;
     private String flightDuration;
 
     public Flight(int flightNumber, String airline, int capacity, int bookedSeatsCount, String flightDuration) {
         this.flightNumber = flightNumber;
         this.airline = airline;
-        Flight.capacity = capacity;
+        this.capacity = capacity;
         this.bookedSeatsCount = bookedSeatsCount;
         this.flightDuration = flightDuration;
     }
 
-    public Flight() {
+    public Flight(int capacity) {
+        this.capacity = capacity;
     }
 
     public String getFlightDetails(){
         String flightDetails = "Flight Number: " + flightNumber + "\n" +
                                 "Airline: " + airline + "\n" +
-                                "Seating capacity: " + Flight.capacity + "\n" +
+                                "Seating capacity: " + this.capacity + "\n" +
                                 "Number of seats booked: " + bookedSeatsCount + "\n" +
                                 "Flight Duration: " + flightDuration;
         return flightDetails;
     }
 
     public int checkCapacity() {
-        return Flight.capacity;
+        return this.capacity;
     }
 
     public boolean checkAvailability(){
-        return Flight.capacity > 0;
+        return this.capacity > 0;
     }
 
     public void bookSeat(){
-        if(bookedSeatsCount < Flight.capacity){
+        if(bookedSeatsCount < this.capacity){
             bookedSeatsCount++;
-            Flight.capacity--;
         }
     }
 
@@ -48,7 +48,7 @@ public class Flight {
     }
 
     public int getCapacity() {
-        return Flight.capacity;
+        return this.capacity;
     }
 
 

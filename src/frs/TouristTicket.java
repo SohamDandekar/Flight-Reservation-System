@@ -17,9 +17,19 @@ public class TouristTicket {
     }
 
     public void addLocation(String location) {
+    /*
+        Since array length can't be changed, length of touristLocations would be equal to the number of elements passed
+        in the constructor.
+        To add an element we convert the touristLocations array into a list and add the location to it.
+     */
+        List<String> list = new ArrayList<>(Arrays.asList(touristLocations));
         if(touristLocations.length < 5){
-               touristLocations[touristLocations.length] = location;
+                list.add(location);
         }
+        // Converting the list back to array
+        String[] arr = new String[list.size()];
+        list.toArray(arr);
+        touristLocations = arr;
     }
 
     public String getHotelAddress() {
@@ -30,7 +40,11 @@ public class TouristTicket {
         this.hotelAddress = hotelAddress;
     }
 
-    public String[] getTouristLocations() {
+    public String getTouristLocations() {
+        String touristLocations = "Selected Tourist Locations: ";
+        for(String ele: this.touristLocations){
+            touristLocations = touristLocations + ele + " ";
+        }
         return touristLocations;
     }
 
@@ -39,6 +53,10 @@ public class TouristTicket {
     }
 
     public void deleteLocation(String location) {
+
+    /* Outer for loop is used to loop through all locations in touristLocations
+    *  When the location to delete is found, inner for loop overwrites that location with locations ahead of it in the array.
+    */
 
         for(int i = 0; i < touristLocations.length; i++){
 
@@ -50,10 +68,9 @@ public class TouristTicket {
             }
         }
 
-        /* List<String> list = new ArrayList<String>(Arrays.asList(touristLocations));
-        list.remove(location);
-        touristLocations = list.toArray(new String[0]); */
-
-
+        /* Though overwritten the array will still contain the same number of elements. So we use copyOfRange method to generate
+        *  a new array with one element less and assign it to touristLocations.
+        */
+        touristLocations = Arrays.copyOfRange(touristLocations, 0, touristLocations.length -1);
     }
 }
