@@ -1,9 +1,10 @@
 package frs;
 
-public class RegularTicket {
+public class RegularTicket extends Ticket{
     private String[] specialServices;
 
-    public RegularTicket(String[] specialServices) {
+    public RegularTicket(int pnrNumber, String departureLocation, String destinationLocation, String dateAndTimeOfDeparture, String dateAndTimeOfArrival, int seatNumber, Passenger passengerDetails, float price, Status status, Flight flightDetails, String[] specialServices) {
+        super(pnrNumber, departureLocation, destinationLocation, dateAndTimeOfDeparture, dateAndTimeOfArrival, seatNumber, passengerDetails, price, status, flightDetails);
         this.specialServices = specialServices;
     }
 

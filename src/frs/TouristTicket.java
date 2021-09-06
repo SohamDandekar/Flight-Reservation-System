@@ -4,16 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TouristTicket {
+public class TouristTicket extends Ticket{
     private String hotelAddress;
     private String[] touristLocations;
 
-    public TouristTicket(String hotelAddress, String[] touristLocations) {
+
+    public TouristTicket(int pnrNumber, String departureLocation, String destinationLocation, String dateAndTimeOfDeparture, String dateAndTimeOfArrival, int seatNumber, Passenger passengerDetails, float price, Status status, Flight flightDetails, String hotelAddress, String[] touristLocations) {
+        super(pnrNumber, departureLocation, destinationLocation, dateAndTimeOfDeparture, dateAndTimeOfArrival, seatNumber, passengerDetails, price, status, flightDetails);
         this.hotelAddress = hotelAddress;
         this.touristLocations = touristLocations;
-    }
-
-    public TouristTicket() {
     }
 
     public void addLocation(String location) {

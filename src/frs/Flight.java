@@ -6,14 +6,12 @@ public class Flight {
     private String airline;
     private final int capacity;
     private int bookedSeatsCount;
-    private String flightDuration;
 
     public Flight(int flightNumber, String airline, int capacity, int bookedSeatsCount, String flightDuration) {
         this.flightNumber = flightNumber;
         this.airline = airline;
         this.capacity = capacity;
         this.bookedSeatsCount = bookedSeatsCount;
-        this.flightDuration = flightDuration;
     }
 
     public Flight(int capacity) {
@@ -24,8 +22,7 @@ public class Flight {
         String flightDetails = "Flight Number: " + flightNumber + "\n" +
                                 "Airline: " + airline + "\n" +
                                 "Seating capacity: " + this.capacity + "\n" +
-                                "Number of seats booked: " + bookedSeatsCount + "\n" +
-                                "Flight Duration: " + flightDuration;
+                                "Number of seats booked: " + bookedSeatsCount + "\n";
         return flightDetails;
     }
 
@@ -43,9 +40,6 @@ public class Flight {
         }
     }
 
-    public String getFlightDuration() {
-        return flightDuration;
-    }
 
     public int getCapacity() {
         return this.capacity;
