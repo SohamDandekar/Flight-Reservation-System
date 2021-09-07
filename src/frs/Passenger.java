@@ -12,10 +12,10 @@ public class Passenger {
         idCounter = 0;
     }
 
-    public Passenger(boolean isRegistered, String addressStreet, String addressState, String adddressCity, String contactName, String contactPhone, String contactEmail) {
+    public Passenger(boolean isRegistered, String addressStreet, String addressState, String addressCity, String contactName, int contactPhone, String contactEmail) {
         this.id = ++idCounter;
         this.isRegistered = isRegistered;
-        this.address = new Address(addressStreet,addressState,adddressCity);
+        this.address = new Address(addressStreet,addressState,addressCity);
         this.contact = new Contact(contactName,contactPhone,contactEmail);
     }
 
@@ -30,49 +30,23 @@ public class Passenger {
             this.state = state;
             this.city = city;
         }
-
-        public Address() {
-        }
-
-        public String getAddressDetails(){
-            String addressDetails = "Street: " + street + "\n" + "City: " + city + "\n" + "State: " + state;
-            return addressDetails;
-        }
-
-        public void updateAddressDetails(String street, String city, String state){
-            this.street = street;
-            this.city = city;
-            this.state = state;
-        }
     }
 
     private static class Contact {
         private String name;
-        private String phoneNumber;
+        private int phoneNumber;
         private String emailId;
 
-        public Contact(String name, String phoneNumber, String emailId) {
+        public Contact(String name, int phoneNumber, String emailId) {
             this.name = name;
             this.phoneNumber = phoneNumber;
             this.emailId = emailId;
         }
-
-        public Contact() {
-        }
-
-        public String getContactDetails(){
-            String contactDetails = "Name: " + name + "\n" + "Phone Number: " + phoneNumber + "\n" + "Email ID: " + emailId;
-            return contactDetails;
-        }
-
-        public void updateContactDetails(String name, String phoneNumber, String emailId){
-            this.name = name;
-            this.phoneNumber = phoneNumber;
-            this.emailId = emailId;
-        }
-
     }
 
+    public int getId() {
+        return id;
+    }
 
     public int getPassengerCount(){
         return idCounter;
@@ -84,5 +58,17 @@ public class Passenger {
 
     public String getContactDetails() {
         return contact.name + ", " + contact.phoneNumber + ", " + contact.emailId;
+    }
+
+    public void setAddressDetails(String street, String city, String state) {
+        address.street = street;
+        address.city = city;
+        address.state = state;
+    }
+
+    public void setContactDetails(String name, int phoneNumber, String emailId) {
+        contact.name = name;
+        contact.phoneNumber = phoneNumber;
+        contact.emailId = emailId;
     }
 }

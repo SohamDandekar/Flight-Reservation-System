@@ -7,7 +7,7 @@ public class Flight {
     private final int capacity;
     private int bookedSeatsCount;
 
-    public Flight(int flightNumber, String airline, int capacity, int bookedSeatsCount, String flightDuration) {
+    public Flight(int flightNumber, String airline, int capacity, int bookedSeatsCount) {
         this.flightNumber = flightNumber;
         this.airline = airline;
         this.capacity = capacity;
@@ -21,7 +21,7 @@ public class Flight {
     public String getFlightDetails(){
         String flightDetails = "Flight Number: " + flightNumber + "\n" +
                                 "Airline: " + airline + "\n" +
-                                "Seating capacity: " + this.capacity + "\n" +
+                                "Seating capacity: " + capacity + "\n" +
                                 "Number of seats booked: " + bookedSeatsCount + "\n";
         return flightDetails;
     }
@@ -30,21 +30,23 @@ public class Flight {
         return this.capacity;
     }
 
-    public boolean checkAvailability(){
-        return this.capacity > 0;
+    public String checkAvailability(){
+        if(bookedSeatsCount < capacity){
+            return (capacity - bookedSeatsCount) + " seats available";
+        }else{
+            return "No seats available";
+        }
     }
 
     public void bookSeat(){
-        if(bookedSeatsCount < this.capacity){
+        if(bookedSeatsCount < capacity){
             bookedSeatsCount++;
         }
     }
 
-
-    public int getCapacity() {
-        return this.capacity;
+    public void setFlightNumber(int flightNumber) {
+        this.flightNumber = flightNumber;
     }
-
 
     public int getBookedSeatsCount() {
         return bookedSeatsCount;

@@ -8,7 +8,12 @@ public class RegularTicket extends Ticket{
         this.specialServices = specialServices;
     }
 
-    public String getSpecialServices() {
+    public void getTicketDetails(){
+        super.getTicketDetails();
+        System.out.println(checkSpecialServices());
+    }
+
+    public String checkSpecialServices() {
         String specialServices = "Selected Services: ";
         for(String ele: this.specialServices){
             specialServices = specialServices + ele + " ";
@@ -16,7 +21,7 @@ public class RegularTicket extends Ticket{
         return specialServices;
     }
 
-    public void setSpecialServices(String[] specialServices) {
+    public void updateSpecialServices(String[] specialServices) {
         this.specialServices = specialServices;
     }
 }
